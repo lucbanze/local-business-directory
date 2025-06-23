@@ -17,19 +17,19 @@ A platform where local businesses can create profiles, list their services, and 
 
 ## Installation
 
-1. Clone the repo into your XAMPP `htdocs/` directory
-2. Run `composer install`
-3. Copy `.env.example` to `.env` and update your DB config:
-    - `DB_DATABASE=lbd`
-    - `DB_USERNAME=root`
-    - `DB_PASSWORD=`
-4. Run the following commands:
-    - `php artisan key:generate`
-    - `php artisan config:cache`
-    - `php artisan migrate`
-5. Serve the project:
-    - Option 1: `php artisan serve` → http://localhost:8000  
-    - Option 2: Access via XAMPP → http://localhost/local-business-discovery/public
+1. Clone the repo into your XAMPP `htdocs/` directory  
+2. Run `composer install`  
+3. Copy `.env.example` to `.env` and update your DB config:  
+   - `DB_DATABASE=lbd`  
+   - `DB_USERNAME=root`  
+   - `DB_PASSWORD=`  
+4. Run the following commands:  
+   - `php artisan key:generate`  
+   - `php artisan config:cache`  
+   - `php artisan migrate`  
+5. Serve the project:  
+   - Option 1: `php artisan serve` → http://localhost:8000  
+   - Option 2: Access via XAMPP → http://localhost/local-business-discovery/public
 
 ## Git Branch Strategy
 
