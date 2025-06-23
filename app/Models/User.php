@@ -21,8 +21,22 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
+
+    // Relation : un utilisateur peut posséder plusieurs businesses
+    public function businesses()
+    {
+        return $this->hasMany(Business::class);
+    }
+
+    // Relation : un utilisateur peut écrire plusieurs reviews
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+    
     /**
      * The attributes that should be hidden for serialization.
      *
