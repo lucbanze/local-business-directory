@@ -23,17 +23,21 @@ class ReviewController extends Controller
     // POST /api/reviews
     public function store(Request $request)
     {
+        // Valide tout sauf user_id
         $data = $request->validate([
-            'user_id' => 'required|exists:users,id',
             'business_id' => 'required|exists:businesses,id',
             'rating' => 'required|integer|min:1|max:5',
             'comment' => 'nullable|string',
             'image' => 'nullable|string',
         ]);
 
+        // Assigne l'user_id de l'utilisateur connecté
+        $data['user_id'] = $request->user()->id;
+
         $review = Review::create($data);
         return response()->json($review, 201);
     }
+
 
     // PUT /api/reviews/{id}
     public function update(Request $request, $id)
