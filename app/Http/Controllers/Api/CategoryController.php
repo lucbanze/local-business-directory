@@ -43,7 +43,13 @@ class CategoryController extends Controller
         ]);
 
         $category->update($data);
+
+        if (! $category->wasChanged()) {
+            return response()->json(['message' => 'Aucune modification effectuée.'], 200);
+        }
+
         return response()->json($category);
+
     }
 
     // DELETE /api/categories/{id}

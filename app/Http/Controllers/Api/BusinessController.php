@@ -24,7 +24,6 @@ class BusinessController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'user_id' => 'required|exists:users,id',
             'name' => 'required|string',
             'description' => 'nullable|string',
             'category' => 'required|string',
@@ -33,10 +32,12 @@ class BusinessController extends Controller
             'image' => 'nullable|string',
             'approved' => 'boolean'
         ]);
-
+        
+        $data['user_id'] = $request->user()->id;// Assuming the user is authenticated and has a user_id
         $business = Business::create($data);
         return response()->json($business, 201);
     }
+
 
     // PUT /api/businesses/{id}
     public function update(Request $request, $id)
@@ -51,6 +52,6 @@ class BusinessController extends Controller
     {
         $business = Business::findOrFail($id);
         $business->delete();
-        return response()->json(['message' => 'Deleted successfully']);
+        return response()->json(['message' => 'Business deleted successfully']);
     }
 }

@@ -13,6 +13,7 @@ class Business extends Model
         'user_id', 'name', 'description', 'category', 'address', 'phone', 'image', 'approved'
     ];
 
+
     // Propriétaire (User)
     public function owner()
     {
